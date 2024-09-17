@@ -1,0 +1,36 @@
+<template>
+    <lightning-card>
+        <div class="slds-box slds-theme_default">
+            <h1 style="margin:5px;">PAGE CONTENT</h1>
+            <div class="slds-m-top_x-small">
+                <div class="slds-text-heading_medium">
+                    <p>Warranty
+                        <lightning-icon class="slds-m-left_x-small" icon-name='action:edit_relationship'
+                            alternative-text='edit_relationship' size='x-small' title='edit_relationship'
+                            onclick={handleEdit}></lightning-icon>
+                    </p>
+                    <button class="slds-button slds-button_neutral" style="position:absolute;top:2rem;left:74rem;"
+                        onclick={openModal}>View
+                        Page</button>
+                </div>
+            </div>
+        </div>
+        <div class="slds-box slds-theme_shade" style="margin-top: 50px;">
+            <div>
+                <lightning-input type="date" label="Select the warranty start date:" value={CreatedDate}>Select the warranty start date:</lightning-input>
+            </div>
+        <div style="margin-top: 2rem;">
+            <p>This document warrants that should a defect in workmanship, related to the work completed by <u>COMPANY NAME</u>, occur within 5 years of the project, <u>COMPANY NAME</u> will complete repairs within the original project’s scope of work at no charge to the customer. This warranty does not cover normal wear and tear, hail damage, wind damage, sun damage, intentional or accidental damage by any person, or acts of God that may or may not merit an insurance claim. This warranty only applies to portions of the project in which <u>COMPANY NAME</u> fully replaced any existing products, and does not cover repairs or service done to another contractor’s work. Defects in the building materials used to complete work do not fall under the scope of this workmanship warranty; any building products installed will instead be covered by the product’s original manufacturer warranty.<br><br><br>
+            <b>Customer name</b><br>
+            Hiren Sumo Quote Test<br><br>
+            <b>Project #</b>
+            63544<br><br>
+            <b>Address</b><br>
+            2nd Floor, Nirav Complex, Navrang Cir, Rangupavan Society, Sardar Patel Colony, Sundar Nagar, Ahmedabad, Gujarat , 380009<br><br>
+            <b>Date project completed</b><br>
+            Thank you again for choosing <u>COMPANY NAME</u> to complete work on your property. We trust you had a great customer experience!
+        </p>
+        </div>
+        </div>
+    </lightning-card>
+</template>

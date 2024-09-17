@@ -1,0 +1,50 @@
+<template>
+    <div class="slds-scrollable" style="height:30rem;" tabindex="0">
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered"  >
+        <thead>
+            <tr>
+                <th>Opportunity Name</th>
+                <th>Related Files</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template if:true={opportunities} for:each={opportunities} for:item="opportunity">
+                <tr key={opportunity.opportunityId}>
+                    <td >
+                        <a onclick={navigateToOpportunity} data-id={opportunity.opportunityId}>{opportunity.opportunityName}</a>
+                    </td>
+                    <td>
+                        <template if:true={opportunity.relatedFiles}>
+                            <table style="padding: 0;" class="slds-table slds-table_cell-buffer slds-table_bordered slds-box">
+                                <thead>
+                                    <tr>
+                                        <template if:true={opportunity.relatedFiles.length}>
+                                            <th>Title</th>
+                                        </template>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={opportunity.relatedFiles} for:item="file">
+                                        <tr key={file.Id}>
+                                            <td>
+                                                <a onclick={handlePreviewFile} data-id={file.ContentDocumentId}>{file.ContentDocument.Title}</a>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                            <template if:true={opportunity.viewAll}>
+                                <div class="slds-m-top_xx-small slds-border_right slds-border_left slds-border_bottom">
+                                    <a data-id={opportunity.opportunityId} onclick={viewAll} style="margin-left: 260px;">View All</a></div>
+                            </template>
+                            
+                            
+                        </template>
+                    </td>
+                </tr>
+            </template>
+            
+        </tbody>
+    </table>
+</div>
+</template>

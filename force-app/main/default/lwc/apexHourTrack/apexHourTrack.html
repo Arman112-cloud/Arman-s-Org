@@ -1,0 +1,18 @@
+<template>
+    <div class="slds-box slds-theme_default">
+        <h1>{title}</h1>
+        {reactiveProperty} {nonReactiveProperty} <br><br>
+        <lightning-input onchange={updateProperties}></lightning-input> <br><br>
+        <template if:true={showT}>
+            <div>
+                <button onclick={handleClick}>Click Me</button>
+                <p>{greeting}</p>
+            </div>
+        </template>
+        <template if:false={showT}>
+            <div>
+                <p>{greeting}</p>
+            </div>
+        </template>
+    </div>
+</template>

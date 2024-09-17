@@ -1,0 +1,14 @@
+<template>
+    <lightning-card>
+        <div>
+            <h1  class="slds-m-left_medium">Create Contact</h1>
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-input type="text" label="Contact Name" onchange={handleNameChange} value={ContactName}></lightning-input>
+            </div>
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-input type="text" label="Email" onchange={handleEmailChange} value={ContactEmail}></lightning-input>
+            </div>
+            <lightning-button variant="brand" label="Save" title="Primary action" onclick={handleSave} class="slds-m-left_x-small"></lightning-button>
+        </div>
+    </lightning-card>
+</template>

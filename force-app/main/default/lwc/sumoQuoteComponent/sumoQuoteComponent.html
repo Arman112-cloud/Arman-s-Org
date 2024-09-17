@@ -1,0 +1,90 @@
+<template>
+    <lightning-card>
+        <div class="slds-box slds-theme_default">
+            <h1 margin="5px">PAGE CONTENT</h1>
+            <div class="slds-m-top_x-small">
+                <div class="slds-text-heading_medium"><p>Custom Page
+                    <lightning-icon class="slds-m-left_x-small" icon-name='action:edit_relationship' alternative-text='edit_relationship' size='x-small' title='edit_relationship' onclick={handleEdit}></lightning-icon>
+                </p>
+                <button class="slds-button slds-button_destructive" style="position:absolute;top:2rem;left:68rem;" >Delete</button>
+                <button class="slds-button slds-button_neutral" style="position:absolute;top:2rem;left:74rem;">View Page</button>    
+            </div>
+            <div class="slds-box slds-theme_shade" style="margin-top:3.7rem;width:80rem;padding:20px">
+                <p><strong>Require customers to acknowledge this page</strong></p>
+                <p>They will be asked during the signing process</p>
+        
+                <div class="slds-form-element" style="margin-top:-2rem;left:74rem;">
+                    <label class="slds-checkbox_toggle slds-grid">
+                    <span class="slds-form-element__label slds-m-bottom_none"></span>
+                    <input type="checkbox" name="checkbox-toggle-15" value="checkbox-toggle-15" aria-describedby="checkbox-toggle-15" unchecked="" />
+                    <span id="checkbox-toggle-15" class="slds-checkbox_faux_container" aria-live="assertive">
+                    <span class="slds-checkbox_faux"></span>
+                    </span>
+                    </label>
+                    </div>
+            </div>
+
+            <div class="slds-box slds-theme_shade" style="margin-top:1.7rem;width:80rem;padding:20px">
+              <lightning-radio-group name="radioGroup" class="slds-text-heading_large"
+              label="Radio Group"
+              options={options}
+              value={value}
+              type="radio"
+              onchange={handleRadioChange}>
+              
+              </lightning-radio-group>
+              </div>
+
+            <template if:true={MyPDFS}>
+            <div class="slds-box slds-theme_shade" style="margin-top:1.7rem;width:80rem;padding:20px">
+              <h1><b>My PDFs</b></h1>
+              <div class="slds-form-element" style="margin-top: 1.7rem;width: 23rem;">
+                <label class="slds-form-element__label" for="text-input-id-46"></label>
+                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+                  <lightning-icon size="x-small" class="slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default" icon-name="utility:search"></lightning-icon>
+                  <input type="text" id="text-input-id-1" class="slds-input" style="height: 3rem;width: 23rem;" />
+              </div>
+                
+                </div>
+            </div>
+          </template>
+
+          <template if:true={SharedPDFS}>
+            <div class="slds-box slds-theme_shade" style="margin-top:1.7rem;width:80rem;padding:20px">
+              <h1><b>Shared PDFs</b></h1>
+              <div class="slds-form-element" style="margin-top: 1.7rem;width: 23rem;">
+                <label class="slds-form-element__label" for="text-input-id-47"></label>
+                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+                  <lightning-icon size="x-small" class="slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default" icon-name="utility:search"></lightning-icon>
+                  <input type="text" id="text-input-id-2" class="slds-input" style="height: 3rem;width: 23rem;" />
+              </div>
+                
+                </div>
+            </div>
+          </template>
+
+          <template if:true={SingleUsePDF}>
+            <div class="slds-box slds-theme_shade" style="margin-top:1.7rem;width:80rem;padding:20px">
+            <lightning-file-upload
+                label="Upload new PDF:"
+                name="fileUploader"
+                accept={acceptedFormats}
+                record-id={myRecordId}
+                onuploadfinished={handleUploadFinished}
+                multiple
+            >
+            </lightning-file-upload>
+            </div>
+        </template>
+        <template if:true={TextPage}>
+          <div class="slds-box slds-theme_shade" style="margin-top:1.7rem;width:80rem;padding:20px">
+          <lightning-input-rich-text value={myVal} formats={formats}>
+          </lightning-input-rich-text>
+        </div>
+        </template>
+
+        </div>
+        
+    </div>
+    </lightning-card>
+</template>

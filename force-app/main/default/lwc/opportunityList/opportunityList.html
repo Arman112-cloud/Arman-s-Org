@@ -1,0 +1,31 @@
+<template>
+    <!-- Display a button to refresh the data -->
+    <lightning-button label="Refresh Data" onclick={handleRefresh}></lightning-button>
+
+    <!-- Display a loading spinner while data is being fetched -->
+    <!-- <template if:true={opportunities}>
+        <lightning-spinner alternative-text="Loading" if:true={opportunities}></lightning-spinner>
+    </template> -->
+
+    <!-- Display an error message if data fetch fails -->
+    <template if:true={error}>
+        <div class="slds-text-color_error">
+            Error: {error.message}
+        </div>
+    </template>
+
+    <!-- Display the list of opportunities if data is successfully fetched -->
+    <template if:true={opportunities}>
+        <lightning-card title="Opportunities">
+            <ul class="slds-list_dotted">
+                <template for:each={opportunities} for:item="opp">
+                    <li key={opp.Id} class="slds-item">
+                        <p><strong>Name:</strong> {opp.Name}</p>
+                        <p><strong>Amount:</strong> {opp.Amount}</p>
+                        <p><strong>Account:</strong> {opp.Account.Name}</p>
+                    </li>
+                </template>
+            </ul>
+        </lightning-card>
+    </template>
+</template>

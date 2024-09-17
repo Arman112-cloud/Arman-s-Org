@@ -1,0 +1,152 @@
+<template>
+    <!--=========================Financial File(s)===========================================-->
+    
+    <article class="slds-card">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate slds-box slds-theme_shade">
+          <div class="slds-media__figure">
+            <span class="slds-icon_container slds-icon-standard-account" title="">
+              <lightning-icon icon-name='action:add_file' alternative-text='add_file' size='xx-small' title='add_file'></lightning-icon>
+              <span class="slds-assistive-text">Financial File(s)</span>
+            </span> 
+          </div>
+          <div class="slds-media__body">
+            <h2 class="slds-card__header-title">
+              <a href="#" class="slds-card__header-link slds-truncate" title="">
+                <span>Financial File(s)</span>
+              </a>
+            </h2>
+          </div>
+          
+        </header>
+      </div>
+      <div style="margin-left: 6rem;">
+       <lightning-file-upload 
+            accept={acceptedFormats}
+            record-id={recordId}
+            onuploadfinished={handleUploadFinished}
+            data-id="Financial File"
+            multiple>
+      </lightning-file-upload> 
+      </div>
+      <template for:each={wireFinancialFilesList} for:item="file">
+        <div key={file.value} class="slds-box">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                  <p><strong>FileName - </strong>{file.label}</p>
+                </div>
+                <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                  <a href={file.url} download>Download</a>
+                </div>
+                <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                  <lightning-button label="Preview" 
+                  variant="brand"
+                 data-id={file.value}
+                 onclick={previewHandler}
+                  ></lightning-button>
+                </div>
+              </div>
+        </div>
+    </template>
+    </article>
+
+    <!--=========================Sampling Files(s)===========================================-->
+    <article class="slds-card">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate slds-box slds-theme_shade">
+          <div class="slds-media__figure">
+            <span class="slds-icon_container slds-icon-standard-account" title="">
+              <lightning-icon icon-name='action:add_file' alternative-text='add_file' size='xx-small' title='add_file'></lightning-icon>
+              <span class="slds-assistive-text">Sampling Files(s)</span>
+            </span> 
+          </div>
+          <div class="slds-media__body">
+            <h2 class="slds-card__header-title">
+              <a href="#" class="slds-card__header-link slds-truncate" title="">
+                <span>Sampling Files(s)</span>
+              </a>
+            </h2>
+          </div>
+          
+        </header>
+      </div>
+      <div style="margin-left: 6rem;">
+       <lightning-file-upload 
+            accept={acceptedFormats}
+            record-id={recordId}
+            onuploadfinished={handleUploadFinished}
+            data-id="Sampling File"
+            multiple>
+      </lightning-file-upload> 
+      </div>
+      <template for:each={wireSamplingFilesList} for:item="file">
+        <div key={file.value} class="slds-box">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                  <p><strong>FileName - </strong>{file.label}</p>
+                </div>
+                <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                  <a href={file.url} download>Download</a>
+                </div>
+                <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                  <lightning-button label="Preview" 
+                  variant="brand"
+                 data-id={file.value}
+                 onclick={previewHandler}
+                  ></lightning-button>
+                </div>
+              </div>
+        </div>
+    </template>
+    </article>
+
+    <!--=========================Quote File(s)===========================================-->
+    <article class="slds-card">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate slds-box slds-theme_shade">
+          <div class="slds-media__figure">
+            <span class="slds-icon_container slds-icon-standard-account" title="">
+              <lightning-icon icon-name='action:add_file' alternative-text='add_file' size='xx-small' title='add_file'></lightning-icon>
+              <span class="slds-assistive-text">Quote File(s)</span>
+            </span> 
+          </div>
+          <div class="slds-media__body">
+            <h2 class="slds-card__header-title">
+              <a href="#" class="slds-card__header-link slds-truncate" title="">
+                <span>Quote File(s)</span>
+              </a>
+            </h2>
+          </div>
+          
+        </header>
+      </div>
+      <div style="margin-left: 6rem;">
+       <lightning-file-upload 
+            accept={acceptedFormats}
+            record-id={recordId}
+            onuploadfinished={handleUploadFinished}
+            data-id="Quote File"
+            multiple>
+      </lightning-file-upload> 
+      </div>
+      <template for:each={wireQuoteFilesList} for:item="file">
+        <div key={file.value} class="slds-box">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                  <p><strong>FileName - </strong>{file.label}</p>
+                </div>
+                <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                  <a href={file.url} download>Download</a>
+                </div>
+                <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                  <lightning-button label="Preview" 
+                  variant="brand"
+                 data-id={file.value}
+                 onclick={previewHandler}
+                  ></lightning-button>
+                </div>
+              </div>
+        </div>
+    </template>
+    </article>
+</template>

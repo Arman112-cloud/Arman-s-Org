@@ -1,0 +1,11 @@
+.dark-theme {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}

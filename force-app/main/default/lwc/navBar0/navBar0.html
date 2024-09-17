@@ -1,0 +1,26 @@
+<template>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered" style="margin-top: 35px;width: 23rem;">
+        <tbody>
+            <template for:each={ElementList} for:item="acc" for:index="index">
+                <tr key={acc.Id}
+            onchange={Change}
+            draggable="true"
+            ondrop={Drop}
+            ondragstart={DragStart}
+            ondragover={DragOver}
+            title={index}>
+            <td  style="font-size: 20px;"><lightning-icon icon-name='utility:rows' alternative-text='rows' size='small' title="rows"></lightning-icon>&nbsp;{acc.Title}
+                <div class="slds-form-element" style="margin-top:4px;float:right;" title={index}>
+                    <label class="slds-checkbox_toggle slds-grid">
+                    <span class="slds-form-element__label slds-m-bottom_none"></span>
+                    <input type="checkbox" name="checkbox-toggle-1" value="checkbox-toggle-15" aria-describedby="checkbox-toggle-15" checked="" />
+                    <span id="checkbox-toggle-15" class="slds-checkbox_faux_container" aria-live="assertive">
+                    <span class="slds-checkbox_faux"></span>
+                    </span>
+                    </label>
+                    </div></td>
+        </tr>
+            </template>
+        </tbody>
+    </table>
+</template>

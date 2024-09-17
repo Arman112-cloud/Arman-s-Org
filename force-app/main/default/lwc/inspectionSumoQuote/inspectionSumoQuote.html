@@ -1,0 +1,56 @@
+<template>
+    <lightning-card>
+        <div class="slds-box slds-theme_default">
+            <h1 style="margin:5px;">PAGE CONTENT</h1>
+            <div class="slds-m-top_x-small">
+                <div class="slds-text-heading_medium">
+                    <p>Letter from the owner
+                        <lightning-icon class="slds-m-left_x-small" icon-name='action:edit_relationship'
+                            alternative-text='edit_relationship' size='x-small' title='edit_relationship'
+                            onclick={handleEdit}></lightning-icon>
+                    </p>
+                    <button class="slds-button slds-button_neutral" style="position:absolute;top:2rem;left:74rem;"
+                        onclick={openModal}>View
+                        Page</button>
+                </div>
+            </div>
+        </div>
+
+        <template for:each={Sectionlist} for:item="sec" for:index="secIndex">
+        <div  class="slds-box slds-theme_shade" key={sec.id}>
+            <lightning-icon data-id={secIndex} access-key={sec.id} data-index={secIndex} icon-name='utility:delete' alternative-text='delete' variant='error' size='small' title='delete' style="margin-left: 78rem;" onclick={deleteSection}></lightning-icon>
+        <template for:each={sec.list} for:item="rec" for:index="index">
+        <div key={rec.id}>
+        <div style="display: flex;">
+            <div style="margin-top:1.7rem;width:50%;padding:60px">
+            <lightning-file-upload
+                data-id={secIndex} data-index={index}
+                label="Upload new PDF:"
+                name="fileUploader"
+                accept={acceptedFormats}
+                record-id={myRecordId}
+                onuploadfinished={handleUploadFinished}
+                multiple
+            >
+            </lightning-file-upload>
+            </div>
+            <div style="margin-top:1.7rem;width:50%;padding:20px">
+            <lightning-input-rich-text data-id={secIndex} data-index={index} value={myVal} formats={formats}>
+            </lightning-input-rich-text>
+            </div>
+            <lightning-icon data-id={secIndex} access-key={rec.id} data-index={index}  icon-name='utility:delete' alternative-text='delete' variant='error' size='small' title='delete' style="margin-top: 4rem;" onclick={deleteRow}></lightning-icon>
+        </div>
+        
+        </div>
+        </template>
+        <div style="margin-left: 20px;margin-top: 30px;">
+            <button data-id={secIndex} class="slds-button slds-button_neutral" onclick={addRow}>Add item</button>
+          </div>
+        </div>
+        
+        </template>
+        <div style="margin-left: 20px;margin-top: 30px;">
+            <button class="slds-button slds-button_neutral" onclick={addSection}>Add Section</button>
+          </div>
+    </lightning-card>
+</template>

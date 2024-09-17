@@ -1,0 +1,16 @@
+<template>
+    <lightning-card>
+        <table class="tblColPad" border="1" cellpadding="5" cellspacing="5" style="border-collapse:collapse;">
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                </tr>
+                <template for:each={Conlist} for:item="Con">
+                    <tr key={Con.id}>
+                        <td>{Con.Name}</td>
+                        <td>{Con.Phone}</td>
+                    </tr>
+                </template>
+        </table>
+    </lightning-card>
+</template>

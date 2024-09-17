@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title=“OpenAI”>
+        <lightning-spinner alternative-text=“Loading…” variant=“brand” if:true={IsSpinner}>
+        </lightning-spinner>
+        <div class=“slds-p-around–small”>
+            {data}
+            <lightning-textarea name=“input1” value={question} onchange={handleChange}></lightning-textarea>
+        </div>
+
+        <div class=“slds-align_absolute-center”>
+            <lightning-button variant=“brand” label=“Ask??” title=“PrimaryAction” onclick={handleClick}
+                class=“slds-m-left_x-small”></lightning-button>
+        </div>
+    </lightning-card>
+</template>

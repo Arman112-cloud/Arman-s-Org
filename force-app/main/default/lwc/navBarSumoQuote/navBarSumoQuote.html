@@ -1,0 +1,148 @@
+<template>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered" style="margin-top: 35px;width: 23rem;">
+        <tbody>
+        <template for:each={ElementList} for:item="acc" for:index="index">
+            <tr key={acc.Id}
+            onchange={Change}
+            draggable="true"
+            ondrop={Drop}
+            ondragstart={DragStart}
+            ondragover={DragOver}
+            title={index}>
+            <td  style="font-size: 20px;" title={index}><lightning-icon icon-name='utility:rows' alternative-text='rows' size='small' title="rows"></lightning-icon>&nbsp;Title
+                    <div class="slds-form-element" style="margin-top:4px;float:right;" title={index}>
+                        <label class="slds-checkbox_toggle slds-grid">
+                        <span class="slds-form-element__label slds-m-bottom_none"></span>
+                        <input type="checkbox" name="checkbox-toggle-1" value="checkbox-toggle-15" aria-describedby="checkbox-toggle-15" checked="" />
+                        <span id="checkbox-toggle-15" class="slds-checkbox_faux_container" aria-live="assertive">
+                        <span class="slds-checkbox_faux"></span>
+                        </span>
+                        </label>
+                        </div></td>
+            </tr>
+            <tr key={acc.Id}
+            onchange={Change}
+            draggable="true"
+            ondrop={Drop}
+            ondragstart={DragStart}
+            ondragover={DragOver}
+            >
+            <td style="font-size: 20px;" title={index}><lightning-icon  icon-name='utility:rows' alternative-text='rows' size='small' title="rows"></lightning-icon>&nbsp;Inspection
+                <div class="slds-form-element" style="margin-top:4px;float:right;" title={index}>
+                <label class="slds-checkbox_toggle slds-grid">
+                <span class="slds-form-element__label slds-m-bottom_none"></span>
+                <input type="checkbox" name="checkbox-toggle-15" value="checkbox-toggle-15" aria-describedby="checkbox-toggle-15" checked="" />
+                <span id="checkbox-toggle-2" class="slds-checkbox_faux_container" aria-live="assertive">
+                <span class="slds-checkbox_faux"></span>
+                </span>
+                </label>
+                </div></td>
+            </tr>
+            <tr key={acc.Id}
+            onchange={Change}
+            draggable="true"
+            ondrop={Drop}
+            ondragstart={DragStart}
+            ondragover={DragOver}
+            >
+            <td style="font-size: 20px;" title={index}><lightning-icon icon-name='utility:rows' alternative-text='rows' size='small' title='rows' ></lightning-icon>&nbsp;Letter from the owner
+                <div class="slds-form-element" style="margin-top:4px;float:right;" title={index}>
+                <label class="slds-checkbox_toggle slds-grid">
+                <span class="slds-form-element__label slds-m-bottom_none"></span>
+                <input type="checkbox" name="checkbox-toggle-15" value="checkbox-toggle-15" aria-describedby="checkbox-toggle-15" checked="" />
+                <span id="checkbox-toggle-3" class="slds-checkbox_faux_container" aria-live="assertive">
+                <span class="slds-checkbox_faux"></span>
+                </span>
+                </label>
+                </div></td>
+            </tr>
+            <tr key={acc.Id}
+            onchange={Change}
+            draggable="true"
+            ondrop={Drop}
+            ondragstart={DragStart}
+            ondragover={DragOver}
+            >
+            <td style="font-size: 20px;"><lightning-icon icon-name='utility:rows' alternative-text='rows' size='small' title='rows'></lightning-icon>&nbsp;Quote Details<div class="slds-form-element" style="margin-top:4px;float:right;">
+                <label class="slds-checkbox_toggle slds-grid">
+                <span class="slds-form-element__label slds-m-bottom_none"></span>
+                <input type="checkbox" name="checkbox-toggle-15" value="checkbox-toggle-15" aria-describedby="checkbox-toggle-15" checked="" />
+                <span id="checkbox-toggle-4" class="slds-checkbox_faux_container" aria-live="assertive">
+                <span class="slds-checkbox_faux"></span>
+                </span>
+                </label>
+                </div></td>
+            </tr>
+            <tr key={acc.Id}
+            onchange={Change}
+            draggable="true"
+            ondrop={Drop}
+            ondragstart={DragStart}
+            ondragover={DragOver}
+            >
+            <td style="font-size: 20px;"><lightning-icon icon-name='utility:rows' alternative-text='rows' size='small' title='rows'></lightning-icon>&nbsp;Authorization Page<div class="slds-form-element" style="margin-top:4px;float:right;">
+                <label class="slds-checkbox_toggle slds-grid">
+                <span class="slds-form-element__label slds-m-bottom_none"></span>
+                <input type="checkbox" name="checkbox-toggle-15" value="checkbox-toggle-15" aria-describedby="checkbox-toggle-15" checked="" />
+                <span id="checkbox-toggle-5" class="slds-checkbox_faux_container" aria-live="assertive">
+                <span class="slds-checkbox_faux"></span>
+                </span>
+                </label>
+                </div></td>
+            </tr>
+            <tr key={acc.Id}
+            onchange={Change}
+            draggable="true"
+            ondrop={Drop}
+            ondragstart={DragStart}
+            ondragover={DragOver}
+            >
+            <td style="font-size: 20px;"><lightning-icon icon-name='utility:rows' alternative-text='rows' size='small' title='rows'></lightning-icon>&nbsp;Terms and Conditions<div class="slds-form-element" style="margin-top:4px;float:right;">
+                <label class="slds-checkbox_toggle slds-grid">
+                <span class="slds-form-element__label slds-m-bottom_none"></span>
+                <input type="checkbox" name="checkbox-toggle-15" value="checkbox-toggle-15" aria-describedby="checkbox-toggle-15" checked="" />
+                <span id="checkbox-toggle-6" class="slds-checkbox_faux_container" aria-live="assertive">
+                <span class="slds-checkbox_faux"></span>
+                </span>
+                </label>
+                </div></td>
+            </tr>
+            <tr key={acc.Id}
+            onchange={Change}
+            draggable="true"
+            ondrop={Drop}
+            ondragstart={DragStart}
+            ondragover={DragOver}
+            >
+            <td style="font-size: 20px;"><lightning-icon icon-name='utility:rows' alternative-text='rows' size='small' title='rows'></lightning-icon>&nbsp;Warranty<div class="slds-form-element" style="margin-top:4px;float:right;">
+                <label class="slds-checkbox_toggle slds-grid">
+                <span class="slds-form-element__label slds-m-bottom_none"></span>
+                <input type="checkbox" name="checkbox-toggle-15" value="checkbox-toggle-15" aria-describedby="checkbox-toggle-15" checked="" />
+                <span id="checkbox-toggle-7" class="slds-checkbox_faux_container" aria-live="assertive">
+                <span class="slds-checkbox_faux"></span>
+                </span>
+                </label>
+                </div></td>
+            </tr>
+            <tr key={acc.Id}
+            onchange={Change}
+            draggable="true"
+            ondrop={Drop}
+            ondragstart={DragStart}
+            ondragover={DragOver}
+            >
+            <td style="font-size: 20px;"><lightning-icon icon-name='utility:rows' alternative-text='rows' size='small' title='rows'></lightning-icon>&nbsp;Custom Page<div class="slds-form-element" style="margin-top:4px;float:right;">
+                <label class="slds-checkbox_toggle slds-grid">
+                <span class="slds-form-element__label slds-m-bottom_none"></span>
+                <input type="checkbox" name="checkbox-toggle-15" value="checkbox-toggle-15" aria-describedby="checkbox-toggle-15" checked="" />
+                <span id="checkbox-toggle-8" class="slds-checkbox_faux_container" aria-live="assertive">
+                <span class="slds-checkbox_faux"></span>
+                </span>
+                </label>
+                </div></td>
+            </tr>
+        </template>
+        </tbody>
+    </table>
+</template>
+    

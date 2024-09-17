@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Account List From Apex" icon-name="custom">
+        <div class="slds-m-around_medium">
+            <template if:true={accounts.data}>
+                <template for:each={accounts.data} for:item="acc">
+                    <p key={acc.id}>{acc.Name}</p>
+                </template>
+                <template if:true={accounts.error}>
+                    {accounts.error}
+                </template>
+            </template>
+
+        </div>
+        <lightning-button label="Refresh Data" onclick={handleRefresh}></lightning-button>
+    </lightning-card>
+</template>

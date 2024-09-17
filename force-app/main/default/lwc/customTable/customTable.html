@@ -1,0 +1,79 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:contact" size="small"></lightning-icon>
+            Contact records
+        </h3>
+        <br/>
+    <template if:true={records}>
+
+        <table class="tblColPad" border="1" cellpadding="5" cellspacing="5" bordercolor="#ccc" style="border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th style="width: 14%"></th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <template if:true={loading}>
+                    <div class="spinner">
+                        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+                    </div>
+                </template>
+                <template for:each={records} for:item="Con" for:index="index">
+                    
+                    <tr key={Con.Id}>
+                        
+                        <template  if:true={Con.isEdited}>
+                            <td><lightning-input data-id={Con.Id} name="Name" value={Con.lastName} onchange={handleChange}>{Con.lastName}</lightning-input></td>
+                        </template>
+                        <template if:false={Con.isEdited}>
+                            <td>{Con.lastName}</td>
+                        </template> 
+                        <template  if:true={Con.isEdited}>
+                        <td><lightning-input data-id={Con.Id} name="Email" value={Con.Email} onchange={handleEmailChange}>{Con.Email}</lightning-input></td>
+                        </template>
+                        <template if:false={Con.isEdited}>
+                            <td>{Con.Email}</td>
+                        </template> 
+                        <template if:true={Con.isEdited}>
+                            <td><lightning-input data-id={Con.Id} name="Phone" value={Con.Phone} onchange={handlePhoneChange}>{Con.Phone}</lightning-input></td>
+                        </template>
+                        <template if:false={Con.isEdited}>
+                                <td>{Con.Phone}</td>
+                        </template> 
+                        
+                        <template if:false={Con.isEdited}>
+                        <td>
+                            <lightning-button data-id={Con.Id} label="Edit" variant="brand" onclick={handleEdit} ></lightning-button>
+                        </td>
+                        </template>
+                        <template if:true={Con.isEdited}>
+                            <td>
+                                <div class="slds-grid slds-gutters">
+                                    <div class="slds-col slds-size_6-of-12">
+                                        <lightning-button data-id={Con.Id} key={Con.Id} label="Save" name="Save" variant="brand" onclick={handleSave}></lightning-button>
+                                    </div>
+                                    <div class="slds-col slds-size_6-of-12">
+                                        <lightning-button data-id={Con.Id} key={Con.Id} label="Cancel" name="Cancel" variant="destructive-text" onclick={handleCancel}></lightning-button>
+                                    </div>
+
+                                </div>
+
+                            </td>
+                        </template>
+                        
+
+                    </tr>
+                </template>
+
+            </tbody>
+
+        </table>
+    </template>
+    </lightning-card>
+    
+</template>

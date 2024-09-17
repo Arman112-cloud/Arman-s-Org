@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-grid slds-wrap slds-m-top_x-small slds-box slds-theme_default">
+
+        <div class="slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12" style="width: auto; margin-right: 10px;">
+            <div>
+                <lightning-input type="file" multiple accept=".jpg, .jpeg .png, .pdf" variant="label-hidden" onchange={handleFileChange} disabled={Isformsubmit}></lightning-input>
+                <input type="file" multiple accept=".jpg, .jpeg .png" class="slds-hide" onchange={handleFileChange} />
+                <input type="file" multiple accept=".jpg, .jpeg .png" class="slds-hide upload" onchange={handleUploadChange} />
+                <input type="file" accept=".jpg, .jpeg .png" class="slds-hide changePhoto" onchange={handleChangePhoto} />
+            </div>
+        </div>
+        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+            <lightning-button label="Delete All" onclick={handleDeleteAllPhotos} class="slds-m-right_x-small" variant="brand" disabled={Isformsubmit}></lightning-button>
+            <lightning-button label="Extract Photos" class="slds-m-right_x-small" variant="brand" disabled={Isformsubmit}></lightning-button>
+        </div>
+    </div>
+    <!-- <lightning-card title="Account List using ApexImperativeMethod" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <lightning-button-group class="slds-m-bottom_small">
+                <lightning-button label="Load Accounts" onclick={handleLoad}></lightning-button>
+            </lightning-button-group>
+            <template if:true={accounts}>
+                <template for:each={accounts} for:item="acc">
+                    <p key={acc.id}>{acc.Name}</p>
+                </template>
+                <template if:true={accounts.error}>
+                    {accounts.error}
+                </template>
+            </template>
+        </div>
+    </lightning-card> -->
+</template>

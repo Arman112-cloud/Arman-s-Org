@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Contact List From Apex" icon-name="custom:custom63">
+            <div class="slds-m-around_medium">
+                <lightning-button-group class="slds-m-bottom_small">
+                    <lightning-button label="View" onclick={handleLoad}></lightning-button>
+                </lightning-button-group>
+                <template if:true={contact}>
+                    <template for:each={contact} for:item="con">
+                        <p key={con.Id}>{con.Name}</p>
+                    </template>
+                </template>
+                <!-- <template if:true={contact.error}>
+                    {error}
+                </template> -->
+            </div>
+        </lightning-card>
+</template>

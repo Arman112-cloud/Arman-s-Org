@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Account List" icon-name="standard:account">
+        <div class="slds-p-around_x-small">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Account Name">Account Name</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Industry">Industry</div>
+                        </th>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Edit">Action</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={Accounts.data} for:item="acc">
+                        <tr key={acc.Id} class="slds-hint-parent">
+                            <td data-lable="Prospecting">
+                                <div class="slds-truncate" title="Account Name">{acc.Nam}</div>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </lightning-card>
+</template>

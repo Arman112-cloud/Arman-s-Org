@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="I am child Nested" icon-name="utility:user">
+        <template if:true={mydata}>
+            <div class="slds-var-m-around_medium">
+                <b>
+                    Name : {mydata.Name}
+                    <br/>
+                    Phone : {mydata.phone}
+                </b>
+            </div>
+        </template>
+        <template if:false={mydata}>
+            No Data Found.
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Conditionally Render Elements" icon-name="utiliti:user">
+        <div>
+            hello, {myvalue}!
+        </div>
+        <div style="padding: 15px;">
+        <lightning-input type="checkbox" label="click me" onchange={handleChange}>
+        </lightning-input>
+        <template if:true={showMe}>
+            I am checked
+        </template>
+        <template if:false={showMe}>
+            I am not checked
+        </template>
+        </div>
+    </lightning-card>
+</template>

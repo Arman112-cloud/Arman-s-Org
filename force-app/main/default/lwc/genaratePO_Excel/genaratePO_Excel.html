@@ -1,0 +1,8 @@
+<template>
+    <img src={GeneratePOExcel} alt="My Image" />
+    <template if:true={isLoading}>
+        <div class="exampleHolder">
+            <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,199 @@
+<template>
+  <lightning-card>
+    <div style="margin-left: 1rem;" if:false={Page1}>
+      <h1>Project :</h1>
+      <div class="slds-form-element" style="width: 15rem;margin-top: -2rem;margin-left: 4rem;">
+        <label class="slds-form-element__label" for="text-input-id-47"></label>
+        <div class="slds-form-element__control">
+          <input type="text" id="text-input-id-47" placeholder="Placeholder text…" disabled="" class="slds-input" />
+        </div>
+      </div>
+      <div style="margin-left: 0rem;margin-top: 2rem;">
+        <h1>Company :</h1>
+        <div class="slds-form-element" style="width: 15rem;margin-top: -2rem;margin-left: 67px;">
+          <label class="slds-form-element__label" for="text-input-id-47"></label>
+          <div class="slds-form-element__control">
+            <input type="text" id="text-input-id-48" placeholder="Placeholder text…" disabled="" class="slds-input" />
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 13rem;margin-left: 68rem;">
+        <button class="slds-button slds-button_neutral">Cancel</button>
+        <button class="slds-button slds-button_brand" onclick={handleNext}>Next</button>
+      </div>
+    </div>
+    <template if:true={Page1}>
+      <div class="slds-box slds-theme_default">
+        <h1 margin="5px">PAGE CONTENT</h1>
+        <div class="slds-m-top_x-small">
+          <div class="slds-text-heading_medium">
+            <p>Custom Page
+              <lightning-icon class="slds-m-left_x-small" icon-name='action:edit_relationship'
+                alternative-text='edit_relationship' size='x-small' title='edit_relationship'
+                onclick={handleEdit}></lightning-icon>
+            </p>
+            <button class="slds-button slds-button_neutral" style="position:absolute;top:2rem;left:64rem;">Page
+              Settings</button>
+            <button class="slds-button slds-button_neutral" style="position:absolute;top:2rem;left:74rem;" onclick={openModal}>View
+              Page</button>
+            <div>
+              <lightning-icon style="margin-top: 25px;" icon-name='utility:info' alternative-text='info' size='small'
+                title='info'></lightning-icon>
+              <h1 style="margin-top: -27px;margin-left: 2rem;">You have saved templates.<a href="#"
+                  class="slds-text-link"> View templates</a>
+              </h1>
+            </div>
+
+            <template for:each={Sectionlist} for:item="sec" for:index="secIndex">
+              <div key={sec.id}>
+                <div class="slds-box slds-theme_shade" style="margin-top: 50px;">
+                  <h3>Section tittle</h3>
+                  <input data-index={secIndex} value={sec.title} type="text" id="text-input-id-1" class="slds-input"
+                    style="margin-top: 20px;height: 45px;width: 39rem;" />
+                  <lightning-icon data-id={secIndex} access-key={sec.id} data-index={secIndex}  style="margin-left: 5px;" icon-name='utility:delete' alternative-text='delete'
+                    variant='error' size='small' title='delete' onclick={deleteSection}></lightning-icon>
+                  <div class="slds-form-element" style="margin-top:-2rem;left:74rem;">
+                    <label class="slds-checkbox_toggle slds-grid">
+                      <span class="slds-form-element__label slds-m-bottom_none"></span>
+                      <input type="checkbox" name="checkbox-toggle-15" value="checkbox-toggle-15"
+                        aria-describedby="checkbox-toggle-15" unchecked="" />
+                      <span id="checkbox-toggle-15" class="slds-checkbox_faux_container" aria-live="assertive">
+                        <span class="slds-checkbox_faux"></span>
+                      </span>
+                    </label>
+                  </div>
+
+                  <table style="margin-top: 35px;">
+                    <thead>
+                      <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Line total</th>
+                        <th></th>
+                        <th style="width: 14%"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <template for:each={sec.list} for:item="rec" for:index="index">
+                        <tr key={rec.id}>
+                          <td><input data-id={secIndex} data-index={index} name='recItem' type="text" class="slds-input"
+                              style="margin-top: 20px;height: 45px;width: 25rem;" onchange={handleInputChange}
+                              value={rec.Item} /></td>
+                          <td><input data-id={secIndex} data-index={index} name='recQuantity' type="text" class="slds-input"
+                              style="margin-top: 20px;height: 45px;width: 10rem;" onchange={handleInputChange}
+                              value={rec.Quantity} /></td>
+                          <td><input data-id={secIndex} data-index={index} name='recPrice' type="text" class="slds-input"
+                              style="margin-top: 20px;height: 45px;width: 10rem;" onchange={handleInputChange}
+                              value={rec.Price} /></td>
+                          <td></td>
+                          <td><lightning-icon data-id={secIndex} access-key={rec.id} data-index={index} icon-name='utility:delete' alternative-text='delete'
+                              variant='error' size='small' title='delete' onclick={deleteRow}></lightning-icon></td>
+                        </tr>
+                      </template>
+                    </tbody>
+                  </table>
+                  <div style="margin-top: 30px;">
+                    <button data-id={secIndex} class="slds-button slds-button_neutral" onclick={addRow}>Add item</button>
+                  </div>
+
+                </div>
+              </div>
+            </template>
+            <div style="margin-left: 20px;margin-top: 30px;">
+              <button class="slds-button slds-button_neutral" onclick={addSection}>Add Section</button>
+            </div>
+            <div class="slds-box slds" style="margin-top: 50px;">
+              <p><b>Profit margin for this quote</b></p>
+              <div class="slds-form-element">
+                <label class="slds-form-element__label" for="slider-id-2">
+                
+                </label>
+                <div class="slds-form-element__control">
+                <div class="slds-slider">
+                <input type="range" id="slider-id-2" class="slds-slider__range" value={val} style="margin-right: 50rem;" />
+                <span class="slds-slider__value" aria-hidden="true">{val}</span>
+                </div>
+                </div>
+                </div>
+                <div style="margin-top:30px;">
+                <a href="#" class="slds-text-link" style="margin-top: 5px;">How is this calculated?</a>
+                </div>
+                <div>
+                  <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label" style="margin-top: -6rem;margin-left: 48rem;width: 30rem;margin-bottom: 1rem;">
+                    <thead>
+                      <tr>
+                        <th>Quote subtotal</th>
+                        <th>Austin Tax</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="slds-hint-parent">
+                        <td>ab1</td>
+                        <td>ab2</td>
+                        <td>ab3</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+                
+            </div>
+            <div class="slds-box slds" style="margin-top: 50px;">
+            <div class="slds-form-element">
+              <label class="slds-form-element__label" for="textarea-id-01"><b>Notes</b></label>
+              <div class="slds-form-element__control">
+              <textarea id="textarea-id-01" class="slds-textarea" style="width: 40%;"></textarea>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Review</h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                  <div  style="color:#0176d3;font-size: 25px;">
+                      <p><b>INSURANCE PROJECT</b></p>
+                      
+                  </div>
+                  <div style="margin-top: 40px;">
+                      <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                        <thead>
+                          <tr>
+                            <th>Description</th>
+                            <th>Qty</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="slds-hint-parent">
+                            <td>ab1</td>
+                            <td>ab2</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    </template>
+  </lightning-card>
+</template>
