@@ -6,7 +6,7 @@ export default class ApexHourRender extends LightningElement {
         name: 'arman',
         phone: '123'
     };
-  
+
     
 
     handleChange(event){

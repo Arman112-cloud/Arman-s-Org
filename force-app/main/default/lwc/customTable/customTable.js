@@ -3,7 +3,7 @@ import getContacts from '@salesforce/apex/wrapperTable.getContacts';
 import updateContacts from '@salesforce/apex/wrapperTable.updateContacts';
 import { updateRecord } from 'lightning/uiRecordApi';
 import ID_FIELD from "@salesforce/schema/Contact.Id";
-import LASTNAME_FIELD from "@salesforce/schema/COntact.lastName";
+import LASTNAME_FIELD from "@salesforce/schema/Contact.lastName";
 import EMAIL_FIELD from "@salesforce/schema/Contact.Email";
 import PHONE_FIELD from "@salesforce/schema/Contact.Phone";
 import { refreshApex } from "@salesforce/apex";

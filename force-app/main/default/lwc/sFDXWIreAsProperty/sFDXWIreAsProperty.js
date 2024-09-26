@@ -2,7 +2,7 @@ import { LightningElement, track, wire  } from 'lwc';
 import getAccountlist from '@salesforce/apex/SFDX.getAccountlist';
 export default class SFDXWIreAsProperty extends LightningElement {
     @track columns = [{
-            label: 'Account name',
+        label: 'Account name',
             fieldName: 'Name',
             type: 'text',
             

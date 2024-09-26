@@ -1,5 +1,5 @@
 import { loadScript } from 'lightning/platformResourceLoader';
-import SHEET_JS from '@salesforce/resourceUrl/sheetjs'; // Assuming you uploaded the library as a static resource
+import SHEET_JS from '@salesforce/resourceUrl/SheetJS'; // Assuming you uploaded the library as a static resource
 
 export default class ExcelGenerator extends LightningElement {
     //sheetJsInitialized = false;

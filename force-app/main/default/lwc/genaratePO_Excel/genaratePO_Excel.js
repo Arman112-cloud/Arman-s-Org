@@ -10,7 +10,7 @@ import { publish, MessageContext } from 'lightning/messageService';
 import GeneratePOExcel from '@salesforce/resourceUrl/arman';
 import getopportunity from '@salesforce/apex/GenrateOpportunityToExcelController.getopportunity';
 import XLSX from "@salesforce/resourceUrl/xlsx";
-import FILESAVER from '@salesforce/resourceUrl/FileSaver';
+import FILESAVER from '@salesforce/resourceUrl/FILESAVER';
 
 export default class GenaratePO_Excel extends LightningElement {
     @api recordId;
