@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Form Example" icon-name="action:record">
+        <div class="slds-p-around_medium">
+            <!-- Input Fields -->
+            <lightning-input label="Field 1" value={field1} required
+                             message-when-value-missing="Please enter Field 1"
+                             onchange={handleInputChange}></lightning-input>
+
+            <lightning-input label="Field 2" value={field2} required
+                             message-when-value-missing="Please enter Field 2"
+                             onchange={handleInputChange}></lightning-input>
+
+            <lightning-input label="Field 3" value={field3} required
+                             message-when-value-missing="Please enter Field 3"
+                             onchange={handleInputChange}></lightning-input>
+
+            <lightning-input label="Field 4" value={field4} required
+                             message-when-value-missing="Please enter Field 4"
+                             onchange={handleInputChange}></lightning-input>
+
+            <lightning-input label="Field 5" value={field5} required
+                             message-when-value-missing="Please enter Field 5"
+                             onchange={handleInputChange}></lightning-input>
+
+            <!-- Submit Button -->
+            <lightning-button label="Submit" variant="brand" onclick={handleSubmit}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
