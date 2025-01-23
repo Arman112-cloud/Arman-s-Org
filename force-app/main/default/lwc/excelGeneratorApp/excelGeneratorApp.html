@@ -1,0 +1,63 @@
+<template>
+    <lightning-card title="Dynamic Object Viewer" icon-name="standard:record">
+        <div class="slds-m-around_medium">
+            <!-- Object Selector -->
+            <lightning-combobox
+                label="Select Object"
+                options={objectOptions}
+                value={objectName}
+                onchange={handleObjectChange}
+                placeholder="Select an object"
+            ></lightning-combobox>
+
+            <!-- Multi-Select Picklist for Fields -->
+            <template if:true={fieldOptions}>
+                <lightning-dual-listbox
+                    name="fields"
+                    label="Select Fields"
+                    source-label="Available Fields"
+                    selected-label="Selected Fields"
+                    options={fieldOptions}
+                    value={selectedFields}
+                    onchange={handleFieldsChange}
+                ></lightning-dual-listbox>
+            </template>
+
+            <!-- Button to Fetch Data -->
+            <lightning-button
+                label="Fetch Data"
+                onclick={fetchRecords}
+                class="slds-m-top_medium"
+            ></lightning-button>
+
+            <!-- Display Records -->
+            <template if:true={records}>
+                <div class="slds-m-top_medium">
+                    <table class="slds-table slds-table_bordered">
+                        <thead>
+                            <tr>
+                                <template for:each={fieldList} for:item="field">
+                                    <th key={field}>{field}</th>
+                                </template>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={records} for:item="record">
+                                <tr key={record.Id}>
+                                    <template for:each={fieldList} for:item="field">
+                                        <td key={field}>{getFieldValue}</td>
+                                    </template>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </template>
+
+            <!-- Error Message -->
+            <template if:true={error}>
+                <p class="slds-text-color_error">{error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
